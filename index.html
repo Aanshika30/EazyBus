@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>South Delhi DTC</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div id="layout">
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo-mark">DTC</div>
+      <div class="logo-text">
+        <span class="logo-main">South Delhi</span>
+        <span class="logo-sub">Transit Intelligence</span>
+      </div>
+    </div>
+
+    <div class="ml-badge">
+      <span class="badge-dot"></span>
+      K-Means Active &nbsp;&middot;&nbsp; K=<span id="k-display">7</span>
+    </div>
+
+    <div class="slider-section">
+      <label>Cluster Count &nbsp;<span id="k-val">7</span></label>
+      <input type="range" id="k-slider" min="3" max="15" value="7" step="1"/>
+      <button id="apply-k">Apply</button>
+    </div>
+
+    <button id="toggle-stops" class="toggle-btn">&#9673; &nbsp;Show All Stops</button>
+
+    <div class="section-title">Hub Statistics</div>
+    <div id="stats">
+      <div class="loading-pulse"><div></div><div></div><div></div></div>
+    </div>
+
+    <div class="sidebar-footer">
+      <span id="total-stops-label">&#8212;</span> stops indexed
+    </div>
+  </aside>
+
+  <div id="map"></div>
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
